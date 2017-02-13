@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script prints 'Holberton School', with bad luck statements inserted.
 i=0
 while ((i < 10))
 do
