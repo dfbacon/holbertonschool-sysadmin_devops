@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script prints 'Holberton School' ten times; prints 'Hi' at line 9.
 i=0
 while ((i < 10))
 do
