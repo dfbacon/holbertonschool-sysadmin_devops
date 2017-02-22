@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# Show pid of bash process.
 ps -aux | grep "bash"

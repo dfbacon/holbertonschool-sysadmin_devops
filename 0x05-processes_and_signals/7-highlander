@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# print multiple strings.
 while :;
 do
 	trap "echo I am invincible!!!" SIGTERM

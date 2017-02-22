@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# Kill previous script, simplified.
 pkill -f inifinity
