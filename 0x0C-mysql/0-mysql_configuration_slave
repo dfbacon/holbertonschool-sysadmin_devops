@@ -16,18 +16,13 @@
 # It has been reported that passwords should be enclosed with ticks/quotes
 # escpecially if they contain "#" chars...
 # Remember to edit /etc/mysql/debian.cnf when changing the socket location.
+
 [client]
 port            = 3306
 socket          = /var/run/mysqld/mysqld.sock
-
-# Here is entries for some specific programs
-# The following values assume you have at least 32M ram
-
-# This was formally known as [safe_mysqld]. Both versions are currently parsed.
 [mysqld_safe]
 socket          = /var/run/mysqld/mysqld.sock
 nice            = 0
-
 [mysqld]
 user            = mysql
 pid-file        = /var/run/mysqld/mysqld.pid
@@ -42,23 +37,20 @@ key_buffer              = 16M
 max_allowed_packet      = 16M
 thread_stack            = 192K
 thread_cache_size       = 8
-myisam-recover         = BACKUP
 query_cache_limit       = 1M
 query_cache_size        = 16M
 log_error = /var/log/mysql/error.log
-server-id               = 1
+server-id               = 2
+relay-log               = /var/log/mysql/mysql-relay-bin.log
 log_bin                 = /var/log/mysql/mysql-bin.log
 expire_logs_days        = 10
 max_binlog_size         = 100M
 binlog_do_db            = holberton
-
 [mysqldump]
 quick
 quote-names
 max_allowed_packet      = 16M
-
 [mysql]
 [isamchk]
 key_buffer              = 16M
-
 !includedir /etc/mysql/conf.d/
