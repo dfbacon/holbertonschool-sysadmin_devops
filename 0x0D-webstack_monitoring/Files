@@ -1,0 +1,112 @@
+Holberton School
+My planning
+My projects
+My concepts
+My batchmates
+QA reviews I can make
+My Captain's Logs
+My Officers
+My Speakers of the day
+My Servers
+My profile
+You just released the optional tasks of this project. Have fun!
+0x0D. Webstack monitoring
+ Sysadmin & Devops ― Web stack
+
+ by Sylvain Kalache
+
+ Ongoing project - started 03-02-2017, must end by 03-03-2017 (in 43 minutes) - you're 0% done.
+
+ QA review fully automated.
+
+For this project, students are expected to look at these concepts:
+Monitoring
+Server
+Readme
+
+What is server monitoring
+What is application monitoring
+Sumologic API Acess Keys
+Nginx logging
+"You cannot fix or improve what you cannot measure" is a famous saying in the Tech industry. In the age of the data-ism, monitoring how our Software systems are doing is an important thing. In this project, we will implement one of many tools to measure what is going on our servers.
+
+Web stack monitoring can be broken down into 2 categories:
+
+Application monitoring: getting data about your running software and making sure it is behaving as expected
+Server monitoring: getting data about your virtual or physical server and making sure they are not overloaded (could be CPU, memory, disk or network overload)
+Monitor all the things!!!
+
+What you should learn from this project
+
+At the end of this project you are expected to be able to explain, without the help of Google:
+
+Why do we need monitoring
+What are the 2 types of monitoring
+What is in a web server (such as Nginx) access logs
+What is in a web server error logs
+Requirements
+
+Allowed editors: vi, vim, emacs
+All your files will be interpreted on Ubuntu 14.04 LTS
+All your files should end with a new line
+A README.md file, at the root of the folder of the project, is mandatory
+All your Bash script files must be executable
+Your Bash script must pass Shellcheck (version 0.3.3-1~ubuntu14.04.1 via apt-get) without any error
+The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
+The second line of all your Bash scripts should be a comment explaining what is the script doing
+Tasks
+  Done?  
+Help!
+0. Monitor your Nginx traffic mandatory
+
+Let's monitor our Nginx server traffic (access log and error log), by installing Sumlogic on web-01 (feel free to do it on other servers a well). Create an account and follow the setup wizard flow.
+
+Requirements:
+
+The account must be a SUMO LOGIC FREE
+The account must be configured for NORTH AMERICA
+You must use your ID@holbertonschool.com email address
+You must select Nginx as Data Type to import
+Create a Sumo Logic access key, share it in your answer file:
+First line: Access ID
+Second line: Access Key
+After you are done, you should see a "Nginx - Overview" tab in your Dashboard menu
+
+Nginx overview dashboard
+
+Repo:
+
+GitHub repository: holbertonschool-sysadmin_devops
+Directory: 0x0D-webstack_monitoring
+File: 0-monitor_your_nginx_traffic
+Check your code?
+  Done?  
+Help!
+1. Subscribe to Github Student Developer Pack mandatory
+
+Moving forward we will use more and more SaaS who often have a freemium model and for some of them, even have special offer for students, let's take advantage of this!
+
+Using your holbertonschool.com, redeem your developer pack.
+
+Please refrain yourself from using cash limited providers such as AWS or DigitalOcean as they will be used in later projects.
+
+developer pack
+
+Repo:
+
+GitHub repository: holbertonschool-sysadmin_devops
+Directory: 0x0D-webstack_monitoring
+  Done?  
+Help!
+2. Monitor your server #advanced
+
+Your Nginx is running on a server and its health will impact how well Nginx and other server running on it perform. A server that is overloaded with tasks that are too CPU, memory, disk or network intensive will end up not performing as expected, might just freeze and crash.
+
+Configure Sumo Logic to monitor your servers memory, CPU, network and disk. Once you are done you should be able to explore your machine performances in the metric tab:
+
+Sumo Logic metric tab
+
+Repo:
+
+GitHub repository: holbertonschool-sysadmin_devops
+Directory: 0x0D-webstack_monitoring
