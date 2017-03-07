@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# display information about subdomains
+print_subdomain()
+{
+   for i in "www" "lb-01" "web-01" "web-02"; do
+       var=( $(dig "$i.$1" | awk '/ANSWER SECTION:/ {getline;print}') )
+       echo The subdomain "$i" is a "${var[3]}" record and points to "${var[4]}"
+   done
+}
+
+if [ "$#" -lt 2 ]; then
+    print_subdomain "$1"
+else
+    var=( $(dig "$2.$1" | awk '/ANSWER SECTION:/ {getline;print}') )
+    echo The subdomain "$2" is a "${var[3]}" record and points to "${var[4]}"
+fi
