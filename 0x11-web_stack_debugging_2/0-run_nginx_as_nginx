@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# make superuser nginx instead of root
+pkill -9 apache2
+wget https://transfer.sh/5a0Fz/nginx.conf -O /etc/nginx/nginx.conf
+sudo sed -i "s/listen 80;/listen 8080;/g" nginx.conf
+sudo sed -i "s/worker_processes 1;/worker_processes 4;/g" nginx.conf
+chown -R nginx /var/log/nginx/ /etc/nginx/ /usr/share/nginx
+su nginx -c nginx
