@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Make sure nginx is listening on port 80
+service nginx stop
+sed -i 's/8080/80' /etc/nginx/sites-enabled/default
