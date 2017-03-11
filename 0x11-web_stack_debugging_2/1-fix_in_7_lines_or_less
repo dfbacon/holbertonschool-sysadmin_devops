@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# make superuser nginx instead of root
+pkill -9 apache2
+wget https://transfer.sh/oEjLF/nginx.conf -O /etc/nginx/nginx.conf
+sudo chown -R nginx /var/log/nginx /etc/nginx /usr/share/nginx
+sudo chmod 755 /etc/nginx/nginx.conf
+su nginx -c nginx
