@@ -2,6 +2,7 @@
 # make superuser nginx instead of root
 pkill -9 apache2
 wget https://transfer.sh/oEjLF/nginx.conf -O /etc/nginx/nginx.conf
+sed -i "s/80 default/8080 default/" /etc/nginx/sites-enabled/default
 sudo chown -R nginx /var/log/nginx /etc/nginx /usr/share/nginx
 sudo chmod 755 /etc/nginx/nginx.conf
-su nginx -c nginx
+su nginx -c "service nginx start"
