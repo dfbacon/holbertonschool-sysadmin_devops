@@ -5,10 +5,7 @@ exec { 'apt-update':
 }
 
 package { 'puppet-lint':
-  require => Exec['apt-update'],
-  ensure  => installed
-}
-
-service { 'puppet-lint':
-  ensure => running
+  ensure   => latest,
+  require  => Exec['apt-update'],
+  provider => 'gem'
 }
