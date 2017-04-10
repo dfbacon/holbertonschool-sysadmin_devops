@@ -25,7 +25,7 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) != 2:
-        print("Usage: ./0-gather_data_from_an_API.py employee_id")
+        print("Usage: python3 0-gather_data_from_an_API.py employee_id")
         exit(1)
 
     url_todo = 'https://jsonplaceholder.typicode.com/todos'
