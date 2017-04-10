@@ -15,12 +15,12 @@ Additional Requirements:
 * File name must be: USER_ID.json
 
 '''
+import json
+import requests
+import sys
+
 
 if __name__ == "__main__":
-    import json
-    import requests
-    import sys
-
     if len(sys.argv) != 2:
         print("Usage: python3 2-export_to_JSON.py employee_id")
         exit(1)
