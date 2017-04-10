@@ -12,12 +12,12 @@ Additional Requirements:
 * File name must be: USER_ID.csv
 
 '''
+import csv
+import requests
+import sys
+
 
 if __name__ == "__main__":
-    import csv
-    import requests
-    import sys
-
     url = "https://jsonplaceholder.typicode.com/users"
     if len(sys.argv) > 1:
         name = requests.get("{}/{}".format(
