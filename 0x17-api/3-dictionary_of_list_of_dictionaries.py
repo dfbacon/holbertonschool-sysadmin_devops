@@ -18,11 +18,11 @@ Additional Requirements:
 * File name must be: todo_all_employees.json
 
 '''
+import json
+import requests
+
 
 if __name__ == "__main__":
-    import json
-    import requests
-
     try:
         url = "https://jsonplaceholder.typicode.com/users"
         r = requests.get(url).json()
