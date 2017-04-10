@@ -17,8 +17,8 @@ Additional Requirements:
 '''
 
 if __name__ == "__main__":
-    import requests
     import json
+    import requests
     import sys
 
     if len(sys.argv) != 2:
@@ -30,8 +30,8 @@ if __name__ == "__main__":
         user_name = requests.get("{}/{}".format(
             url, sys.argv[1])).json().get("username")
         r_todo = requests.get("{}/{}/todos".format(
-                url, sys.argv[1])).json()
-        with open ("{}.json".format(sys.argv[1]), mode="w", newline="") as f:
+            url, sys.argv[1])).json()
+        with open("{}.json".format(sys.argv[1]), mode="w", newline="") as f:
             json.dump({sys.argv[1]: [
                 {"task": e.get("title"), "completed": e.get("completed"),
                  "username": user_name} for e in r_todo]}, f)
