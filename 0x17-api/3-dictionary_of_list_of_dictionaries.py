@@ -21,12 +21,17 @@ Additional Requirements:
 
 if __name__ == "__main__":
     import requests
+    import json
 
-    var root = 'https://jsonplaceholder.typicode.com';
-
-    $.ajax({
-        url: root + '/posts/1',
-        method: 'GET'
-    }).then(function(data) {
-        console.log(data);
-    });
+    try:
+        url = "https://jsonplaceholder.typicode.com/users"
+        r = requests.get(url).json()
+        with open("todo_all_employees.json", mode="w", newline="") as f:
+            json.dump({user.get("id"): [
+                {"task": e.get("title"), "completed": e.get("completed"),
+                 "username": user.get("username")} for e in requests.get(
+                    "{}/{}/todos".format(url, user.get("id"))).json()
+            ] for user in r}, f)
+    except:
+        print("Usage: python3 3-dictionary_of_list_of_dictionaries.py")
+        pass
