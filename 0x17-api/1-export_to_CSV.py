@@ -18,21 +18,16 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    if len(sys.argv) != 2:
-        print("Usage: python3 1-export_to_CSV.py employee_id")
-        exit(1)
-
-    try:
-        url = "https://jsonplaceholder.typicode.com/users"
+    url = "https://jsonplaceholder.typicode.com/users"
+    if len(sys.argv) > 1:
         name = requests.get("{}/{}".format(
             url, sys.argv[1])).json().get("username")
         r_todo = requests.get("{}/{}/todos".format(
             url, sys.argv[1])).json()
+
         with open("{}.csv".format(sys.argv[1]), mode="w", newline="") as f:
-            writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+            writer = csv.writer(f, delimiter=",",
+                                quotechar='"', quoting=csv.QUOTE_ALL)
             writer.writerows([sys.argv[1], name,
                               e.get("completed"),
                               e.get("title")] for e in r_todo)
-
-    except:
-        pass
