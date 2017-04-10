@@ -7,7 +7,7 @@ This is the '1-export_to_CSV' module.
 '0-gather_data_from_an_API' in CSV format.
 
 Additional Requirements:
-* Records all tasks tat are owned by a given employee.
+* Records all tasks that are owned by a given employee.
 * Format must be: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITTLE"
 * File name must be: USER_ID.csv
 

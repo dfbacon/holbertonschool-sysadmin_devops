@@ -3,7 +3,7 @@
 
 This is the '2-export_to_JSON' module.
 
-1-export_to_CSV usesa dummy REST API to export data from
+1-export_to_CSV uses a dummy REST API to export data from
 '0-gather_data_from_an_API' in JSON format.
 
 Additional Requirements:
