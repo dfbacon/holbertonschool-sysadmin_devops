@@ -19,42 +19,36 @@ Additional Requirements:
         Tab TASK_TITTLE
 
 '''
+import json
+import requests
+import sys
+
+def get_user(uid):
+    '''This is the 'get_user' method.
+
+    Requests info from matching user id to API
+    '''
+    name = requests.get("{}/users/{}".format(
+        url, sys.argv[1])).json().get("name")
+    if name is None:
+        return
+
+    r = requests.get("{}/todos?userId={}".format(
+        url, sys.argv[1])).json()
+    completed = [e for e in r if e.get("completed") is True]
+    print("Employee {} is done with tasks({:d}/{:d}):".format(
+        name, len(completed), len(r)))
+
+    if completed:
+        print("\t ", end="")
+        print("\n\t ".join(e.get("title") for e in completed))
+
 if __name__ == "__main__":
-    import json
-    import requests
-    import sys
+    url = "https://jsonplaceholder.typicode.com"
+    if len(sys.argv) > 1:
+        try:
+            uid = int(sys.argv[1])
+            get_user(uid)
 
-    if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py employee_id")
-        exit(1)
-
-    url_todo = 'https://jsonplaceholder.typicode.com/todos'
-    url_users = 'https://jsonplaceholder.typicode.com/users'
-    user_id = int(sys.argv[1])
-
-    try:
-        r_users = requests.get(url_users)
-        r_todo = requests.get(url_todo)
-        total_count = 0
-        completed_count = 0
-
-        for user in r_users.json():
-            if user['id'] is user_id:
-                user_name = user['name']
-
-        for task in r_todo.json():
-            if task['userId'] is user_id:
-                total_count += 1
-                if task['completed'] is True:
-                    completed_count += 1
-
-        print("Employee {} is done with tasks({}/{}):".format(
-            user_name, completed_count, total_count))
-
-        for task_name in r_todo.json():
-            if task_name['userId'] is user_id:
-                if task_name['completed'] is True:
-                    print("\t{}".format(task_name['title']))
-
-    except:
-        pass
+        except (ValueError, TypeError):
+            pass
