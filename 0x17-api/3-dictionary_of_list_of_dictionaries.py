@@ -20,8 +20,8 @@ Additional Requirements:
 '''
 
 if __name__ == "__main__":
-    import requests
     import json
+    import requests
 
     try:
         url = "https://jsonplaceholder.typicode.com/users"
