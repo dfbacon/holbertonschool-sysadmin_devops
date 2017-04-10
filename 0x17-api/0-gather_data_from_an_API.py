@@ -23,6 +23,7 @@ import json
 import requests
 import sys
 
+
 def get_user(uid):
     '''This is the 'get_user' method.
 
