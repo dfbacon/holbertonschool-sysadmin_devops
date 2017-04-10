@@ -3,7 +3,7 @@
 
 This is the '2-export_to_JSON' module.
 
-1-export_to_CSV uses a dummy REST API to export data from
+2-export_to_JSON uses a dummy REST API to export data from
 '0-gather_data_from_an_API' in JSON format.
 
 Additional Requirements:
@@ -18,12 +18,22 @@ Additional Requirements:
 
 if __name__ == "__main__":
     import requests
+    import json
+    import sys
 
-    var root = 'https://jsonplaceholder.typicode.com';
+    if len(sys.argv) != 2:
+        print("Usage: python3 2-export_to_JSON.py employee_id")
+        exit(1)
 
-    $.ajax({
-        url: root + '/posts/1',
-        method: 'GET'
-    }).then(function(data) {
-        console.log(data);
-    });
+    try:
+        url = "https://jsonplaceholder.typicode.com/users"
+        user_name = requests.get("{}/{}".format(
+            url, sys.argv[1])).json().get("username")
+        r_todo = requests.get("{}/{}/todos".format(
+                url, sys.argv[1])).json()
+        with open ("{}.json".format(sys.argv[1]), mode="w", newline="") as f:
+            json.dump({sys.argv[1]: [
+                {"task": e.get("title"), "completed": e.get("completed"),
+                 "username": user_name} for e in r_todo]}, f)
+    except:
+        pass
