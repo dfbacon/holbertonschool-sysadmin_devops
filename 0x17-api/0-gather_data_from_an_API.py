@@ -20,8 +20,8 @@ Additional Requirements:
 
 '''
 if __name__ == "__main__":
-    import requests
     import json
+    import requests
     import sys
 
     if len(sys.argv) != 2:
