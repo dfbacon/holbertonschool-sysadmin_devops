@@ -27,12 +27,12 @@ if __name__ == "__main__":
         name = requests.get("{}/{}".format(
             url, sys.argv[1])).json().get("username")
         r_todo = requests.get("{}/{}/todos".format(
-                url, sys.argv[1])).json()
-        with open ("{}.csv".format(sys.argv[1]), mode="w", newline="") as f:
+            url, sys.argv[1])).json()
+        with open("{}.csv".format(sys.argv[1]), mode="w", newline="") as f:
             writer = csv.writer(f, quoting=csv.QUOTE_ALL)
             writer.writerows([sys.argv[1], name,
-                                 e.get("completed"),
-                                 e.get("title")] for e in r_todo)
+                              e.get("completed"),
+                              e.get("title")] for e in r_todo)
 
     except:
         pass
